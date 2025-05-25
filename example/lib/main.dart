@@ -73,7 +73,7 @@ class _CupertinoColorPickerExampleAppState
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 SizedBox(height: 24),
-                ?_hexColorText,
+                if (_hexColorText != null) _hexColorText!,
                 _supportsAlphaSwitch,
                 _showColorPickerButton,
               ],
