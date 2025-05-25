@@ -56,12 +56,12 @@ Future<Color?> showCupertinoColorPicker({
     initialColorString = initialColor.hexString;
   }
 
-  final hexColorString = await CupertinoColorPickerPlatform.instance
-      .showCupertinoColorPicker(
-        initialColor: initialColorString,
-        supportsAlpha: supportsAlpha,
-        onChanged: onChanged,
-      );
+  final platform = CupertinoColorPickerPlatform.instance;
+  final hexColorString = await platform.showCupertinoColorPicker(
+    initialColor: initialColorString,
+    supportsAlpha: supportsAlpha,
+    onChanged: onChanged,
+  );
 
   return hexColorString?.color;
 }
