@@ -24,12 +24,26 @@ abstract class CupertinoColorPickerPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  /// Shows the native iOS color picker and returns the selected color as a hex string.
+  /// Shows the native iOS UIColorPickerViewController and returns the selected color as a hex string.
   ///
-  /// [initialColor] - Optional initial color to show in the picker (hex string like '#RRGGBB' or '#AARRGGBB')
-  /// [supportsAlpha] - Whether the color picker should allow selecting colors with alpha component
+  /// This method presents a native iOS color picker that allows users to select colors
+  /// using the system's built-in UI components. The color picker is presented modally
+  /// on top of the current view controller.
   ///
-  /// Returns a hex string of the selected color or null if user cancels
+  /// Parameters:
+  /// - [initialColor] - Optional initial color to show in the picker as a hex string (format: '#RRGGBB' or '#AARRGGBB').
+  ///   If not provided, the picker will default to black or the system's default color.
+  /// - [supportsAlpha] - Whether the color picker should allow selecting colors with alpha (transparency) component.
+  ///   When true, the returned color will include alpha information. Defaults to false.
+  /// - [onChanged] - Optional callback that is invoked continuously as the user interacts with the color picker
+  ///   and changes the color selection. This allows for real-time color updates in your UI before the
+  ///   user confirms their final selection.
+  ///
+  /// Returns a Future that completes with a hex string of the selected color (format: '#RRGGBB' or '#AARRGGBB'
+  /// depending on [supportsAlpha]) or null if the user cancels the picker by dismissing it without selecting a color.
+  ///
+  /// Note: This method only works on iOS 14.0+ where UIColorPickerViewController is available.
+  /// On other platforms, it will throw a PlatformException.
   Future<String?> showCupertinoColorPicker({
     String? initialColor,
     bool supportsAlpha = false,

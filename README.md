@@ -1,25 +1,25 @@
 # Cupertino Color Picker
 
-Flutter 플러그인 - iOS 네이티브 UIColorPickerViewController를 Flutter 앱에서 사용할 수 있게 해줍니다.
+A Flutter plugin that provides access to the native iOS UIColorPickerViewController in Flutter apps.
 
-## 소개
+## Introduction
 
-이 플러그인은 iOS 14.0 이상에서 제공하는 UIColorPickerViewController를 Flutter 앱에서 사용할 수 있도록 해주는 iOS 전용 플러그인입니다.
+This plugin allows Flutter apps to use the native `UIColorPickerViewController` available in iOS 14.0 and above.
 
-**참고**: 이 플러그인은 iOS에서만 작동합니다. Android나 다른 플랫폼에서 사용하는 경우 PlatformException이 발생합니다.
+**Note**: This plugin only works on iOS. Using it on Android or other platforms will result in a PlatformException.
 
-## 사용 방법
+## Usage
 
-### 설치
+### Installation
 
-pubspec.yaml 파일에 의존성 추가:
+Add this to your package's pubspec.yaml file:
 
 ```yaml
 dependencies:
   cupertino_color_picker: ^0.0.1
 ```
 
-### 기본 사용법
+### Basic Usage
 
 ```dart
 import 'package:cupertino_color_picker/cupertino_color_picker.dart';
@@ -27,39 +27,31 @@ import 'package:flutter/material.dart';
 
 Future<void> showColorPickerExample() async {
   try {
-    // 컬러 피커 표시 (Flutter의 다른 show* 함수들과 동일한 방식)
+    // Show the color picker (similar to other Flutter show* functions)
     final color = await showCupertinoColorPicker(
-      initialColor: Colors.blue, // Color 객체 전달
-      supportsAlpha: true, // 투명도(alpha) 지원 여부
+      initialColor: Colors.blue, // Pass a Color object
+      supportsAlpha: true, // Whether to support transparency
+      onChanged: (color) {
+        // This is called continuously as the user changes the color
+        print('Color changing: $color');
+      },
     );
     
-    // 사용자가 취소하면 null 반환
+    // Returns null if user cancels
     if (color != null) {
-      // Color 객체를 직접 사용
-      print('선택된 색상: ${color.toString()}');
+      // Use the Color object directly
+      print('Selected color: ${color.toString()}');
       
-      // UI에 적용
+      // Apply to UI
       Container(color: color);
     }
   } catch (e) {
-    print('컬러 피커 오류: $e');
+    print('Color picker error: $e');
   }
 }
 ```
 
-### 색상 공간 지원
+## License
 
-이 플러그인은 iOS의 'Display P3' 색상 공간도 지원합니다. UIColorPickerViewController에서 'Display P3 Hex Color'로 색상을 선택한 경우에도 올바른 색상을 Flutter 앱에서 표현할 수 있도록 처리합니다.
-
-플러그인은 Display P3 색상 공간에서 선택된 색상을 자동으로 sRGB 색상 공간으로 변환하여 Flutter에서 올바르게 표시될 수 있도록 합니다.
-
-### 입력 파라미터
-
-* `initialColor`: (선택사항) 초기 색상. Flutter의 `Color` 객체.
-* `supportsAlpha`: 알파 채널(투명도) 지원 여부. 기본값은 `false`
-
-### 반환 값
-
-* 사용자가 색상을 선택하면 Flutter `Color` 객체 반환
-* 사용자가 색상 선택을 취소하면 `null`
+This plugin is licensed under the MIT License - see the LICENSE file for details.
 
