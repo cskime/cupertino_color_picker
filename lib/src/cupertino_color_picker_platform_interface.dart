@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 import 'cupertino_color_picker_method_channel.dart';
@@ -32,6 +33,7 @@ abstract class CupertinoColorPickerPlatform extends PlatformInterface {
   Future<String?> showCupertinoColorPicker({
     String? initialColor,
     bool supportsAlpha = false,
+    ValueChanged<Color>? onChanged,
   }) {
     throw UnimplementedError(
       'showCupertinoColorPicker() has not been implemented.',

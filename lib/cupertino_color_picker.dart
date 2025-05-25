@@ -2,5 +2,4 @@
 /// This hides implementation details like platform interfaces.
 library;
 
-export 'src/cupertino_color_picker.dart'
-    show showCupertinoColorPicker, OnColorChanged;
+export 'src/cupertino_color_picker.dart' show showCupertinoColorPicker;
