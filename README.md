@@ -20,8 +20,8 @@ This plugin brings the native iOS `UIColorPickerViewController` directly to your
 ## Requirements
 
 - iOS 14.0+ (`UIColorPickerViewController` was introduced in iOS 14)
-- Flutter 3.3.0+
-- Dart SDK 3.8.0+
+- Flutter 3.10.0+
+- Dart SDK 3.0.0+
 
 ## Usage
 
@@ -31,7 +31,7 @@ Add this to your package's pubspec.yaml file:
 
 ```yaml
 dependencies:
-  cupertino_color_picker: ^0.1.0
+  cupertino_color_picker: ^0.1.1
 ```
 
 ### Basic Usage

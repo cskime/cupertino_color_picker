@@ -1,4 +1,10 @@
-## 0.1.0 - May 25, 2025
+## 0.1.1
+
+- Lowered minimum Dart SDK requirement to 3.0.0 (from 3.8.0) for wider compatibility.
+- Updated minimum Flutter version to 3.10.0 to align with Dart 3.0.0 requirements.
+- Improved documentation with more detailed usage examples.
+
+## 0.1.0
 
 ### Initial Release
 
