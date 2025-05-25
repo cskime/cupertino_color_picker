@@ -20,13 +20,13 @@ class MethodChannelCupertinoColorPicker extends CupertinoColorPickerPlatform {
       'supportsAlpha': supportsAlpha,
     };
 
+    _onChanged = onChanged;
+    _methodChannel.setMethodCallHandler(_methodCallHandler);
+
     final String? hexColor = await _methodChannel.invokeMethod<String>(
       'showCupertinoColorPicker',
       arguments,
     );
-
-    _onChanged = onChanged;
-    _methodChannel.setMethodCallHandler(_methodCallHandler);
 
     return hexColor;
   }
