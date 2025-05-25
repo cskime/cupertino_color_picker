@@ -31,7 +31,7 @@ Add this to your package's pubspec.yaml file:
 
 ```yaml
 dependencies:
-  cupertino_color_picker: ^0.1.1
+  cupertino_color_picker: ^0.1.2
 ```
 
 ### Basic Usage

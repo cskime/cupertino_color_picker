@@ -1,6 +1,6 @@
 name: cupertino_color_picker
 description: "Flutter plugin that provides access to iOS native UIColorPickerViewController."
-version: 0.1.1
+version: 0.1.2
 repository: https://github.com/cskime/cupertino_color_picker
 
 environment:

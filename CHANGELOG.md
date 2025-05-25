@@ -1,3 +1,7 @@
+## 0.1.2
+
+- Fixed issue where `onChanged` callback was not triggered when `UIColorPickerViewController` was first opened.
+
 ## 0.1.1
 
 - Lowered minimum Dart SDK requirement to 3.0.0 (from 3.8.0) for wider compatibility.

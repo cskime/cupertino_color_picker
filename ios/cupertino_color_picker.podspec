@@ -4,14 +4,14 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'cupertino_color_picker'
-  s.version          = '0.1.0'
-  s.summary          = 'A new Flutter plugin project.'
+  s.version          = '0.1.2'
+  s.summary          = 'Flutter plugin for iOS UIColorPickerViewController.'
   s.description      = <<-DESC
-A new Flutter plugin project.
+Flutter plugin that provides access to the native iOS UIColorPickerViewController.
                        DESC
-  s.homepage         = 'http://example.com'
+  s.homepage         = 'https://github.com/cskime/cupertino_color_picker'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'email@example.com' }
+  s.author           = { 'Chang Kim' => 'github.com/cskime' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
