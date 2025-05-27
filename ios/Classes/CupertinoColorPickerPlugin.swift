@@ -14,6 +14,9 @@ public class CupertinoColorPickerPlugin: NSObject, FlutterPlugin {
     instance.viewController = UIApplication.shared.windows.first?.rootViewController
     instance.channel = channel
     registrar.addMethodCallDelegate(instance, channel: channel)
+    
+    let buttonFactory = CupertinoColorPickerButtonFactory(messenger: registrar.messenger())
+    registrar.register(buttonFactory, withId: "UIColorWell")
   }
   
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {

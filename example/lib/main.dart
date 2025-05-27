@@ -75,6 +75,7 @@ class _CupertinoColorPickerExampleAppState
                 SizedBox(height: 24),
                 if (_hexColorText != null) _hexColorText!,
                 _supportsAlphaSwitch,
+                _cupertinoColorPickerButton,
                 _showColorPickerButton,
               ],
             ),
@@ -104,10 +105,21 @@ class _CupertinoColorPickerExampleAppState
     );
   }
 
+  Widget get _cupertinoColorPickerButton {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      spacing: 8,
+      children: [
+        Text('Built-in Button:'),
+        const CupertinoColorPickerButton(),
+      ],
+    );
+  }
+
   Widget get _showColorPickerButton {
     return ElevatedButton(
       onPressed: _showColorPicker,
-      child: const Text('Show Color Picker'),
+      child: const Text('Show Color Picker Manually'),
     );
   }
 }

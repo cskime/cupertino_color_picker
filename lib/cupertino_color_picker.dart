@@ -3,3 +3,4 @@
 library;
 
 export 'src/cupertino_color_picker.dart' show showCupertinoColorPicker;
+export 'src/cupertino_color_picker_button.dart';

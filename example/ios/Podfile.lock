@@ -1,5 +1,5 @@
 PODS:
-  - cupertino_color_picker (0.0.1):
+  - cupertino_color_picker (0.1.2):
     - Flutter
   - Flutter (1.0.0)
   - integration_test (0.0.1):
@@ -19,7 +19,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/integration_test/ios"
 
 SPEC CHECKSUMS:
-  cupertino_color_picker: f14aca965bf54d20755fdee974ef48ee886b2cd9
+  cupertino_color_picker: 6cde91d1f31b9ec9a3b2d7a8764418e9527ecd73
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   integration_test: 4a889634ef21a45d28d50d622cf412dc6d9f586e
 
