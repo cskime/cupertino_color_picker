@@ -2,7 +2,7 @@
 
 A Flutter plugin that provides access to the native iOS `UIColorPickerViewController` and `UIColorWell` in Flutter apps.
 
-![demo](./docs/demo.gif)
+![demo](./doc/images/demo.gif)
 
 ## Introduction
 
