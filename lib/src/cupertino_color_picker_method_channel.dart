@@ -22,8 +22,7 @@ class MethodChannelCupertinoColorPicker extends CupertinoColorPickerPlatform {
       supportsAlpha: supportsAlpha,
     );
 
-    _onChanged = onChanged;
-    _methodChannel.setMethodCallHandler(_methodCallHandler);
+    _addListener(onChanged);
 
     final String? hexColor = await _methodChannel.invokeMethod<String>(
       'showCupertinoColorPicker',
@@ -31,6 +30,35 @@ class MethodChannelCupertinoColorPicker extends CupertinoColorPickerPlatform {
     );
 
     return hexColor;
+  }
+
+  @override
+  Widget createCupertinoColorPickerButton({
+    String? initialColor,
+    double size = 32,
+    bool supportsAlpha = false,
+    ValueChanged<Color>? onChanged,
+  }) {
+    final initialData = InitialData(
+      initialColor: initialColor,
+      supportsAlpha: supportsAlpha,
+    );
+
+    _addListener(onChanged);
+
+    return SizedBox(
+        width: size,
+        height: size,
+        child: UiKitView(
+          viewType: 'UIColorWell',
+          creationParams: initialData.toMap(),
+          creationParamsCodec: const StandardMessageCodec(),
+        ));
+  }
+
+  void _addListener(ValueChanged<Color>? onChanged) {
+    _onChanged = onChanged;
+    _methodChannel.setMethodCallHandler(_methodCallHandler);
   }
 
   Future<dynamic> _methodCallHandler(MethodCall call) async {
@@ -42,31 +70,5 @@ class MethodChannelCupertinoColorPicker extends CupertinoColorPickerPlatform {
         _onChanged?.call(color);
       }
     }
-  }
-
-  @override
-  Widget createCupertinoColorPickerButton({
-    String? initialColor,
-    double size = 32,
-    bool supportsAlpha = false,
-    ValueChanged<Color>? onChanged,
-  }) {
-    const String viewType = 'UIColorWell';
-    final initialData = InitialData(
-      initialColor: initialColor,
-      supportsAlpha: supportsAlpha,
-    );
-
-    _onChanged = onChanged;
-    _methodChannel.setMethodCallHandler(_methodCallHandler);
-
-    return SizedBox(
-        width: size,
-        height: size,
-        child: UiKitView(
-          viewType: viewType,
-          creationParams: initialData.toMap(),
-          creationParamsCodec: const StandardMessageCodec(),
-        ));
   }
 }
