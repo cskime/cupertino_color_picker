@@ -1,12 +1,12 @@
 # Cupertino Color Picker
 
-A Flutter plugin that provides access to the native iOS `UIColorPickerViewController` in Flutter apps.
+A Flutter plugin that provides access to the native iOS `UIColorPickerViewController` and `UIColorWell` in Flutter apps.
 
 ![demo](./docs/demo.gif)
 
 ## Introduction
 
-This plugin brings the native iOS `UIColorPickerViewController` directly to your Flutter applications. It provides a seamless, platform-native color selection experience for iOS users while maintaining the simplicity and flexibility that Flutter developers expect.
+This plugin brings the native iOS color selection components directly to your Flutter applications. It provides a seamless, platform-native color selection experience for iOS users while maintaining the simplicity and flexibility that Flutter developers expect.
 
 **Note**: This plugin only works on iOS 14.0+. Using it on Android or other platforms will result in a PlatformException.
 
@@ -19,12 +19,13 @@ This plugin brings the native iOS `UIColorPickerViewController` directly to your
 
 ## Key Features
 
-- 🔵 **True Native Experience**: Uses the actual iOS UIColorPickerViewController for authentic iOS look and feel
+- 🔵 **True Native Experience**: Uses the actual iOS UI components for authentic iOS look and feel
 - 🔄 **Real-time Color Updates**: Receive continuous updates as users interact with the color picker
 - 🎨 **Display P3 Color Space Support**: Properly handles wide gamut colors with automatic conversion to sRGB
 - 🌓 **Alpha Channel Support**: Optional transparency selection
 - 💻 **Simple API**: Follows Flutter's design patterns with an easy-to-use interface
 - ✅ **Null Safety**: Fully compatible with Dart's null safety
+- 🧩 **Multiple Components**: Supports both `UIColorPickerViewController` (dialog) and `UIColorWell` (button)
 
 ## Requirements
 
@@ -40,7 +41,7 @@ Add this to your package's pubspec.yaml file:
 
 ```yaml
 dependencies:
-  cupertino_color_picker: ^0.1.2
+  cupertino_color_picker: ^0.2.0
 ```
 
 ### Basic Usage
@@ -70,6 +71,26 @@ Future<void> showColorPickerExample() async {
     print('Color picker error: $e');
   }
 }
+```
+
+### Color Picker Button
+
+The plugin also provides a native `UIColorWell` button component:
+
+```dart
+import 'package:cupertino_color_picker/cupertino_color_picker.dart';
+import 'package:flutter/material.dart';
+
+// Use the CupertinoColorPickerButton widget
+CupertinoColorPickerButton(
+  size: 40, // Size of the button
+  initialColor: Colors.blue, // Initial color
+  supportsAlpha: true, // Support for transparency
+  onChanged: (color) {
+    // Called when the user changes the color
+    setState(() => _selectedColor = color);
+  },
+)
 ```
 
 ## Color Space Support

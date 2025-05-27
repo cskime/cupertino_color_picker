@@ -1,3 +1,10 @@
+## 0.2.0
+
+### New Features
+
+- Added `CupertinoColorPickerButton` widget that uses the native iOS `UIColorWell`.
+- Updated documentation with examples for the new button component.
+
 ## 0.1.2
 
 - Fixed issue where `onChanged` callback was not triggered when `UIColorPickerViewController` was first opened.
