@@ -2,11 +2,9 @@ import Flutter
 import UIKit
 
 class CupertinoColorPickerButtonFactory: NSObject, FlutterPlatformViewFactory {
-  private let messenger: FlutterBinaryMessenger
   private let channel: FlutterMethodChannel
   
-  init(messenger: FlutterBinaryMessenger, channel: FlutterMethodChannel) {
-    self.messenger = messenger
+  init(channel: FlutterMethodChannel) {
     self.channel = channel
     super.init()
   }

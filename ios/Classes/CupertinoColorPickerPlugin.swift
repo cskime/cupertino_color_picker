@@ -16,7 +16,7 @@ public class CupertinoColorPickerPlugin: NSObject, FlutterPlugin {
     instance.channel = channel
     registrar.addMethodCallDelegate(instance, channel: channel)
     
-    let buttonFactory = CupertinoColorPickerButtonFactory(messenger: registrar.messenger(), channel: channel)
+    let buttonFactory = CupertinoColorPickerButtonFactory(channel: channel)
     registrar.register(buttonFactory, withId: "UIColorWell")
   }
   
