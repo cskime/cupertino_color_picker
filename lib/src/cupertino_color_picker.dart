@@ -50,15 +50,9 @@ Future<Color?> showCupertinoColorPicker({
   bool supportsAlpha = true,
   ValueChanged<Color>? onChanged,
 }) async {
-  String? initialColorString;
-
-  if (initialColor != null) {
-    initialColorString = initialColor.hexString;
-  }
-
   final platform = CupertinoColorPickerPlatform.instance;
   final hexColorString = await platform.showCupertinoColorPicker(
-    initialColor: initialColorString,
+    initialColor: initialColor?.hexString,
     supportsAlpha: supportsAlpha,
     onChanged: onChanged,
   );

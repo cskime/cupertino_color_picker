@@ -111,7 +111,11 @@ class _CupertinoColorPickerExampleAppState
       spacing: 8,
       children: [
         Text('Built-in Button:'),
-        const CupertinoColorPickerButton(),
+        CupertinoColorPickerButton(
+          initialColor: _selectedColor,
+          supportsAlpha: _supportsAlpha,
+          onChanged: _onColorChanged,
+        ),
       ],
     );
   }

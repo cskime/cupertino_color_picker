@@ -1,4 +1,6 @@
+import 'package:cupertino_color_picker/src/models/initial_data.dart';
 import 'package:cupertino_color_picker/src/utils/color_hex_string_ext.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'cupertino_color_picker_platform_interface.dart';
@@ -15,17 +17,17 @@ class MethodChannelCupertinoColorPicker extends CupertinoColorPickerPlatform {
     bool supportsAlpha = false,
     ValueChanged<Color>? onChanged,
   }) async {
-    final arguments = {
-      'initialColor': initialColor,
-      'supportsAlpha': supportsAlpha,
-    };
+    final initialData = InitialData(
+      initialColor: initialColor,
+      supportsAlpha: supportsAlpha,
+    );
 
     _onChanged = onChanged;
     _methodChannel.setMethodCallHandler(_methodCallHandler);
 
     final String? hexColor = await _methodChannel.invokeMethod<String>(
       'showCupertinoColorPicker',
-      arguments,
+      initialData.toMap(),
     );
 
     return hexColor;
@@ -40,5 +42,31 @@ class MethodChannelCupertinoColorPicker extends CupertinoColorPickerPlatform {
         _onChanged?.call(color);
       }
     }
+  }
+
+  @override
+  Widget createCupertinoColorPickerButton({
+    String? initialColor,
+    double size = 32,
+    bool supportsAlpha = false,
+    ValueChanged<Color>? onChanged,
+  }) {
+    const String viewType = 'UIColorWell';
+    final initialData = InitialData(
+      initialColor: initialColor,
+      supportsAlpha: supportsAlpha,
+    );
+
+    _onChanged = onChanged;
+    _methodChannel.setMethodCallHandler(_methodCallHandler);
+
+    return SizedBox(
+        width: size,
+        height: size,
+        child: UiKitView(
+          viewType: viewType,
+          creationParams: initialData.toMap(),
+          creationParamsCodec: const StandardMessageCodec(),
+        ));
   }
 }

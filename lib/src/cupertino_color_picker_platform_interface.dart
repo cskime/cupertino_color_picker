@@ -53,4 +53,11 @@ abstract class CupertinoColorPickerPlatform extends PlatformInterface {
       'showCupertinoColorPicker() has not been implemented.',
     );
   }
+
+  Widget createCupertinoColorPickerButton({
+    String? initialColor,
+    double size = 32,
+    bool supportsAlpha = false,
+    ValueChanged<Color>? onChanged,
+  });
 }
