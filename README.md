@@ -8,6 +8,13 @@ This plugin brings the native iOS `UIColorPickerViewController` directly to your
 
 **Note**: This plugin only works on iOS 14.0+. Using it on Android or other platforms will result in a PlatformException.
 
+## Why Use Cupertino Color Picker?
+
+- **Native Feel**: Gives your iOS users the familiar platform experience they expect
+- **Performance**: Leverages native iOS components rather than rebuilding them in Flutter
+- **Accuracy**: Proper color space handling ensures colors appear as expected
+- **Developer Experience**: No need to build complex color selection UIs from scratch
+
 ## Key Features
 
 - 🔵 **True Native Experience**: Uses the actual iOS UIColorPickerViewController for authentic iOS look and feel
@@ -69,17 +76,9 @@ This plugin supports the 'Display P3' color space from iOS. It properly handles 
 
 The plugin automatically converts colors selected in the Display P3 color space to the sRGB color space to ensure they display correctly in Flutter.
 
-## Why Use Cupertino Color Picker?
-
-- **Native Feel**: Gives your iOS users the familiar platform experience they expect
-- **Performance**: Leverages native iOS components rather than rebuilding them in Flutter
-- **Accuracy**: Proper color space handling ensures colors appear as expected
-- **Developer Experience**: No need to build complex color selection UIs from scratch
-
 ## Contributing
 
 Contributions, feature requests, and bug reports are welcome via GitHub issues and pull requests!
-
 
 ## License
 
