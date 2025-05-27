@@ -2,6 +2,8 @@
 
 A Flutter plugin that provides access to the native iOS `UIColorPickerViewController` in Flutter apps.
 
+![demo](./docs/demo.gif)
+
 ## Introduction
 
 This plugin brings the native iOS `UIColorPickerViewController` directly to your Flutter applications. It provides a seamless, platform-native color selection experience for iOS users while maintaining the simplicity and flexibility that Flutter developers expect.
